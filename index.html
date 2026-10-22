@@ -1,74 +1,1242 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6c3ce9">
+  <meta name="description" content="Mercy Jelimo's personal portfolio website.">
+  <title>Mercy Jelimo | Portfolio</title>
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+  <!-- Icons and fonts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-      <!--=============== REMIXICONS ===============-->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6c3ce9;
+      --primary-dark: #4c22b5;
+      --accent: #f0eaff;
+      --background: #ffffff;
+      --surface: #f8f6ff;
+      --text: #211b2d;
+      --muted: #777184;
+      --border: #e9e3f5;
+      --shadow: 0 12px 35px rgba(60, 35, 105, 0.10);
+    }
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      <title>Responsive portfolio website - Bedimcode</title>
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header" id="header">
-         
-      </header>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <!--==================== HOME ====================-->
-         <section class="home section" id="home">
-            
-         </section>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-         <!--==================== ABOUT ====================-->
-         <section class="about section" id="about">
-            
-         </section>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-         <!--==================== SKILLS ====================-->
-         <section class="skills section">
-            
-         </section>
+    button, input, textarea {
+      font: inherit;
+    }
 
-         <!--==================== SERVICES ====================-->
-         <section class="services section" id="services">
-            
-         </section>
+    button {
+      cursor: pointer;
+    }
 
-         <!--==================== PROJECTS ====================-->
-         <section class="projects section" id="projects">
-            
-         </section>
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
 
-         <!--==================== CONTACT ====================-->
-         <section class="contact section" id="contact">
-            
-         </section>
-      </main>
+    .section {
+      padding: 90px 0;
+    }
 
-      <!--==================== FOOTER ====================-->
-      <footer class="footer">
-         
-      </footer>
+    .section-title {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
 
-      <!--========== SCROLL UP ==========-->
-      
+    .section-title span {
+      color: var(--primary);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
 
-      <!--=============== SCROLLREVEAL ===============-->
-      <script src=""></script>
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 8px 0 12px;
+      line-height: 1.3;
+    }
 
-      <!--=============== EMAIL JS ===============-->
-      
+    .section-title p,
+    .muted {
+      color: var(--muted);
+    }
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-   </body>
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: .25s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 27px;
+      color: var(--text);
+    }
+
+    /* BUTTONS */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border: 1px solid var(--primary);
+      border-radius: 9px;
+      background: var(--primary);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .button-outline:hover {
+      color: white;
+    }
+
+    /* HOME */
+    .home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 125px 0 75px;
+      background:
+        radial-gradient(circle at 85% 20%, #eee5ff, transparent 30%),
+        linear-gradient(135deg, #fff, #fbf9ff);
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .welcome {
+      display: inline-block;
+      padding: 7px 14px;
+      background: var(--accent);
+      color: var(--primary);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .home h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.2;
+      letter-spacing: -2px;
+      margin: 22px 0;
+    }
+
+    .home h1 span {
+      color: var(--primary);
+    }
+
+    .home-description {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .home-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 15px;
+      margin-top: 28px;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      color: var(--primary);
+      transition: .25s;
+    }
+
+    .socials a:hover {
+      color: white;
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      max-width: 390px;
+      width: 100%;
+      margin: auto;
+      position: relative;
+    }
+
+    .portrait {
+      aspect-ratio: 4 / 5;
+      border-radius: 45% 45% 25px 25px;
+      background: linear-gradient(145deg, #ded0ff, #f9e3f2, #e9e1ff);
+      border: 9px solid white;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portrait > i {
+      font-size: 150px;
+      color: rgba(108,60,233,.48);
+    }
+
+    .portrait-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+      background: rgba(255,255,255,.9);
+      border-radius: 12px;
+      padding: 13px;
+    }
+
+    .portrait-caption strong,
+    .portrait-caption small {
+      display: block;
+    }
+
+    .portrait-caption small {
+      color: var(--muted);
+    }
+
+    .floating-label {
+      position: absolute;
+      padding: 12px 16px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .floating-label i {
+      color: var(--primary);
+      margin-right: 6px;
+    }
+
+    .label-one {
+      top: 20%;
+      left: -35px;
+    }
+
+    .label-two {
+      bottom: 22%;
+      right: -30px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 35px;
+      border-radius: 22px;
+    }
+
+    .monogram {
+      height: 100px;
+      width: 100px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #a77bff);
+      color: white;
+      border-radius: 25px;
+      font-size: 37px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .about-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .about-copy h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      line-height: 1.35;
+      margin: 12px 0 18px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .fact {
+      padding: 15px 8px;
+      text-align: center;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--primary);
+      font-size: 21px;
+    }
+
+    .fact small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* SKILLS */
+    .skills {
+      background: var(--surface);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 23px;
+    }
+
+    .skill-card h3 i {
+      color: var(--primary);
+      margin-right: 8px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .skill-info span:last-child {
+      color: var(--muted);
+    }
+
+    .skill-track {
+      height: 8px;
+      background: #eee8fa;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      width: var(--level);
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, var(--primary), #bd9bff);
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: .25s;
+    }
+
+    .service-card:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      height: 55px;
+      width: 55px;
+      border-radius: 15px;
+      background: var(--accent);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: var(--surface);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: .25s;
+    }
+
+    .project-image {
+      height: 180px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e8ddff, #f9e7f5);
+      color: var(--primary);
+      font-size: 65px;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      font-size: 11px;
+      color: var(--primary-dark);
+      background: var(--accent);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 35px;
+    }
+
+    .contact-intro h3 {
+      font-size: 25px;
+    }
+
+    .contact-intro > p {
+      color: var(--muted);
+      margin: 15px 0 25px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-detail i {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: var(--accent);
+      color: var(--primary);
+      border-radius: 12px;
+      font-size: 20px;
+    }
+
+    .contact-detail small {
+      display: block;
+      color: var(--muted);
+    }
+
+    .contact-form {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      background: #fdfcff;
+      color: var(--text);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(108,60,233,.1);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 30px 0;
+      background: #211631;
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer p {
+      color: #d3c9e0;
+      font-size: 13px;
+    }
+
+    .footer .logo span {
+      color: #bd9bff;
+    }
+
+    /* SCROLL UP */
+    .scroll-up {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 45px;
+      height: 45px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white;
+      font-size: 21px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: .25s;
+      z-index: 90;
+    }
+
+    .scroll-up.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* ENTRANCE ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      .home-grid,
+      .about-grid {
+        gap: 35px;
+      }
+
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .label-one {
+        left: -10px;
+      }
+
+      .label-two {
+        right: -10px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px 5%;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+      }
+
+      .nav-list.open {
+        display: flex;
+      }
+
+      .nav-list .button {
+        width: 100%;
+      }
+
+      .home {
+        min-height: auto;
+        padding-top: 125px;
+      }
+
+      .home-grid,
+      .about-grid,
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-grid {
+        gap: 50px;
+      }
+
+      .home h1 {
+        font-size: clamp(39px, 12vw, 57px);
+      }
+
+      .hero-visual {
+        max-width: 310px;
+      }
+
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts {
+        gap: 7px;
+      }
+
+      .fact {
+        padding: 12px 5px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo">Mercy<span>.</span></a>
+
+      <button class="menu-toggle" id="menu-toggle"
+        aria-label="Open navigation menu" aria-expanded="false">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <ul class="nav-list" id="nav-list">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="button">Contact Me <i class="ri-arrow-right-line"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section class="home section" id="home">
+      <div class="container home-grid">
+        <div class="reveal">
+          <span class="welcome"><i class="ri-sparkling-line"></i> Welcome to my portfolio</span>
+
+          <h1>Hello, I'm<br><span>Mercy Jelimo.</span></h1>
+
+          <p class="home-description">
+            I'm a motivated and creative individual passionate about learning,
+            personal growth, and making a positive difference. Welcome to my
+            portfolio, where I share my journey, skills, and work.
+          </p>
+
+          <div class="home-buttons">
+            <a href="#projects" class="button">Explore My Work <i class="ri-arrow-right-line"></i></a>
+            <a href="#contact" class="button button-outline">Let's Talk</a>
+          </div>
+
+          <div class="socials">
+            <!-- Replace these example links with Mercy's actual profiles -->
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="#contact" aria-label="Email">
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="floating-label label-one">
+            <i class="ri-lightbulb-line"></i> Creative thinker
+          </div>
+
+          <div class="portrait">
+            <!-- Replace this icon with a real portrait if available -->
+            <i class="ri-user-smile-line"></i>
+            <div class="portrait-caption">
+              <strong>Mercy Jelimo</strong>
+              <small>Learning • Creating • Growing</small>
+            </div>
+          </div>
+
+          <div class="floating-label label-two">
+            <i class="ri-heart-line"></i> Purpose-driven
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <div class="container about-grid">
+        <div class="about-card reveal">
+          <div class="monogram">MJ</div>
+          <h3>Nice to meet you!</h3>
+          <p class="muted">A little about Mercy Jelimo.</p>
+          <div class="socials">
+            <a href="#contact" aria-label="Contact Mercy"><i class="ri-chat-3-line"></i></a>
+            <a href="#projects" aria-label="View projects"><i class="ri-folder-line"></i></a>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <span class="welcome">About Me</span>
+          <h2>Growing through learning, creativity, and experience.</h2>
+          <p>
+            My name is Mercy Jelimo. I value continuous learning, collaboration,
+            and approaching every opportunity with a positive attitude.
+            I enjoy developing my abilities, discovering new ideas, and working
+            toward goals that create meaningful results.
+          </p>
+          <p>
+            This portfolio is a space to present my interests, skills, projects,
+            and achievements. As my journey progresses, I will continue updating
+            it with my latest work and experiences.
+          </p>
+          <a href="#contact" class="button">Get In Touch <i class="ri-send-plane-line"></i></a>
+
+          <div class="facts">
+            <div class="fact"><strong>01</strong><small>Keep Learning</small></div>
+            <div class="fact"><strong>02</strong><small>Stay Creative</small></div>
+            <div class="fact"><strong>03</strong><small>Make an Impact</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>My abilities</span>
+          <h2>Skills & Strengths</h2>
+          <p>Skills and strengths that can be tailored to Mercy's real experience.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3><i class="ri-computer-line"></i> Digital Skills</h3>
+
+            <div class="skill">
+              <div class="skill-info"><span>Computer Literacy</span><span>70%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:70%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-info"><span>Online Research</span><span>75%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:75%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-info"><span>Digital Communication</span><span>80%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:80%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3><i class="ri-user-heart-line"></i> Personal Strengths</h3>
+
+            <div class="skill">
+              <div class="skill-info"><span>Communication</span><span>80%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:80%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-info"><span>Teamwork</span><span>85%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:85%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-info"><span>Problem-Solving</span><span>70%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--level:70%"></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section" id="services">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>What I offer</span>
+          <h2>Services & Interests</h2>
+          <p>Example areas of contribution. Replace these with Mercy's actual professional services or interests.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ri-book-open-line"></i></div>
+            <h3>Research & Learning</h3>
+            <p>Gathering information, learning new concepts, and organising ideas to support projects and decisions.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ri-team-line"></i></div>
+            <h3>Team Collaboration</h3>
+            <p>Working with others, exchanging ideas, and contributing toward shared objectives.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="ri-lightbulb-flash-line"></i></div>
+            <h3>Creative Thinking</h3>
+            <p>Exploring practical approaches to challenges and remaining open to new possibilities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>My work</span>
+          <h2>Projects & Achievements</h2>
+          <p>Replace these sample projects with Mercy's actual assignments, work, volunteering, or achievements.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-image"><i class="ri-folder-open-line"></i></div>
+            <div class="project-content">
+              <h3>Project One</h3>
+              <p>Add a description of a real project, its purpose, and Mercy's role in completing it.</p>
+              <div class="tags">
+                <span class="tag">Project Work</span>
+                <span class="tag">Learning</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image"><i class="ri-presentation-line"></i></div>
+            <div class="project-content">
+              <h3>Project Two</h3>
+              <p>Highlight an assignment, presentation, community initiative, or creative project.</p>
+              <div class="tags">
+                <span class="tag">Communication</span>
+                <span class="tag">Teamwork</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-image"><i class="ri-award-line"></i></div>
+            <div class="project-content">
+              <h3>Achievement</h3>
+              <p>Showcase a genuine certificate, course, award, milestone, or other accomplishment.</p>
+              <div class="tags">
+                <span class="tag">Achievement</span>
+                <span class="tag">Growth</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Get in touch</span>
+          <h2>Let's Connect</h2>
+          <p>Have an opportunity or an idea? Send Mercy a message.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-intro reveal">
+            <h3>Let's start a conversation.</h3>
+            <p>
+              For enquiries, collaboration, or opportunities, use the contact
+              details below after replacing the sample email with Mercy's real address.
+            </p>
+
+            <div class="contact-detail">
+              <i class="ri-mail-line"></i>
+              <div><small>Email</small><strong>mercy@example.com</strong></div>
+            </div>
+
+            <div class="contact-detail">
+              <i class="ri-map-pin-line"></i>
+              <div><small>Location</small><strong>Kenya</strong></div>
+            </div>
+
+            <div class="contact-detail">
+              <i class="ri-chat-smile-3-line"></i>
+              <div><small>Availability</small><strong>Open to opportunities</strong></div>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+            </div>
+
+            <button class="button" type="submit">
+              Prepare Email <i class="ri-send-plane-line"></i>
+            </button>
+
+            <p class="form-note" id="form-note">
+              The form opens your email application. It does not send messages directly from this website.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="#home" class="logo">Mercy<span>.</span></a>
+      <p>© <span id="year"></span> Mercy Jelimo. All rights reserved.</p>
+      <p>Designed with <i class="ri-heart-fill"></i> and creativity.</p>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-up" id="scroll-up" aria-label="Scroll to top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+
+  <!-- JAVASCRIPT: all functionality is included in this HTML file -->
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menu-toggle");
+    const navList = document.getElementById("nav-list");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navList.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", open);
+      menuToggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.innerHTML = open
+        ? '<i class="ri-close-line"></i>'
+        : '<i class="ri-menu-line"></i>';
+    });
+
+    // Close mobile menu after selecting a link
+    document.querySelectorAll(".nav-list a").forEach(link => {
+      link.addEventListener("click", () => {
+        navList.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.innerHTML = '<i class="ri-menu-line"></i>';
+      });
+    });
+
+    // Automatically update the copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll-to-top button and active navigation links
+    const scrollButton = document.getElementById("scroll-up");
+    const sections = document.querySelectorAll("main section[id]");
+    const navigationLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      scrollButton.classList.toggle("show", window.scrollY > 400);
+
+      let currentSection = "home";
+
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+          currentSection = section.id;
+        }
+      });
+
+      navigationLinks.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + currentSection
+        );
+      });
+    }, { passive: true });
+
+    scrollButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Reveal sections as they enter the viewport
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach(element => {
+        observer.observe(element);
+      });
+    } else {
+      document.querySelectorAll(".reveal").forEach(element => {
+        element.classList.add("visible");
+      });
+    }
+
+    // Contact form: prepare a message in the visitor's email application.
+    // IMPORTANT: replace this address with Mercy's real email address.
+    document.getElementById("contact-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const recipient = "mercy@example.com";
+      const subject = encodeURIComponent("Portfolio enquiry from " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\nEmail: " + email + "\n\n" + message
+      );
+
+      document.getElementById("form-note").textContent =
+        "Opening your email application. Make sure the recipient email in the code is correct.";
+
+      window.location.href =
+        "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
 </html>
